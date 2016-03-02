@@ -1,0 +1,9 @@
+With the submitted driver, the program is very simple to use. It can be run without arguments and it will automatically solve the puzzle "cc1.txt" in the current directory, outputting the result to the screen. The program can also take a single command line argument: the name of a board file. In this case, the program will look for the specified board and solve it.
+With a modified driver, the user could also use the program to play an actual game of sudoku. My interactive mode lets users place and replace values on the board, and can automatically solve the puzzle when users rage quit.
+
+Internally, the program is broken into three files: a short driver, the joint class interface/implementation, and a small library of vector utility functions (I mainly used these in debugging, but they do appear once or twice in the class implementation). A puzzle object can be instantiated in a number of ways, but they all result in a two dimensional vector of board values, with 0s representing empty cells. The class is templated to accept wordoku boards, and interactive mode works with
+word puzzles, but I haven't thoroughly tested the solver algorithm here. Of course, the main feature of the program is its solving feature. This feature combines a single-elimination method with a singleton identification method to fill the board with possible values guaranteed to be true. In practice, this looks like an absurd number of nested for-loops scanning the both the board and the array of possible-value vectors.
+
+I verified the program by running it with a couple of the provided sudoku boards and comparing the output of my program to the output of the suggested online sudoku solver.
+
+The solving algorithm was pretty tedious and inefficient (and we're efficient coders!). I'm bummed that we weren't encouraged to implement a recursive solution; we could definitely use some practice with this.
